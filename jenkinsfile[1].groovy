@@ -11,7 +11,9 @@ pipeline {
         stage('testing'){
             steps{
                 sshagent(['nginx-server']) {
-                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@3.25.227.47 "ls"'
+                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@3.26.184.93 "sudo rm -r /var/www/html/ironpulse"'
+                    sh 'scp -o strictHostKeyCheckin=no -r *ubuntu@3.26.184.93:/home/ubuntu'
+                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@3.26.184.93 "pwd"'
                     }
             }
         }
